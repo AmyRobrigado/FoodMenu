@@ -17,12 +17,17 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <select class="form-select" aria-label="defaultSelect" id="menuList" onchange="dropFunction">
+                    <select class="form-select" aria-label="defaultSelect" id="menuList">
                         <option selected="">Menu</option>
-                        <option value="">Drinks</option>
-                        <option value="">Entrees</option>
-                        <option value="">Dessert</option>
+                        <option value="drinks">Drinks</option>
+                        <option value="entrees">Entrees</option>
+                        <option value="desserts">Dessert</option>
                     </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <select class="form-select" id="subItems" size="10" style="width:200px;"></select>
                 </div>
             </div>
         </div>
