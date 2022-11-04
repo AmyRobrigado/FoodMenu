@@ -18,41 +18,55 @@ let menu = {
     ]
     };
 
-
-    //const menuList = document.getElementById("menuLists");
-    //menuList.option.length = 0;
-
-    function init()
+    window.onload = function()
     {
         const menuList = document.getElementById("menuList");
+        const subItems = document.getElementById("subItems");
         menuList.onchange = onMenuListChanged;
     }
 
     function onMenuListChanged() 
     {
-        const menuList = document.getElementById("menuList"); //... check for entrees or desserts...
+        const menuItem = document.getElementById("menuList").value; 
+        const subList = document.getElementById("subItems");            //... check for entrees or desserts...
         let selectedValue = menuList.value;
         let theList;
-        //-------------------------------------------------------------------------------------
-        if(selectedValue == "drinks"){
-            theList = menu.drinks;
-        }
-        if(selectedValue == "entrees"){
-            theList = menu.entrees;
-        }
-        if(selectedValue == "desserts"){
-            theList = menu.desserts;
-        }
 
-        //-------------------------------------------------------------------------------------
-        let listLength = theList.length;
-        for (let i = 0; i < listLength; i++)
+
+
+        if (menuItem == "drinks")
         {
-            let newOption = document.createElement("subItems");
-            newOption.value = menu[i].drinks;
-            newOption.value = menu [i].entrees;
-            newOption.value = menu[i].desserts;
-
-            listLength.appendChild(newOption);
+            let drinks = menu.drinks;
+            let length = drinks.length;
+            subList.length = 0;
+            for(let i = 0; i < length; i++)
+            {
+                let newOption = new Option(drinks[i]);
+                subList.appendChild(newOption);
+            }
         }
+        else if (menuItem == "entrees")
+        {
+            let entrees = menu.entrees;
+            let length = entrees.length;
+            subList.length = 0;
+            for(let i = 0; i < length; i++)
+            {
+                let newOption = new Option(entrees[i]);
+                subList.appendChild(newOption);
+            }
+        }
+        else if (menuItem == "desserts")
+        {
+            let desserts = menu.desserts;
+            let length = desserts.length;
+            subList.length = 0;
+            for(let i = 0; i < length; i++)
+            {
+                let newOption = new Option(desserts[i]);
+                subList.appendChild(newOption);
+            }
+        }
+       // Implement clear menu on a later date
     }
+    
